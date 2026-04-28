@@ -1,0 +1,255 @@
+{
+  "session_id": "e97ba973",
+  "extracted": {
+    "lender_name": "QuickCash Financial Services Private Limited",
+    "nbfc_registration_number": null,
+    "principal_amount": 3000.0,
+    "stated_interest_rate": 3.0,
+    "stated_interest_type": "monthly",
+    "loan_tenure_days": 21,
+    "disbursed_amount": 2575.0,
+    "total_repayment_amount": 3063.0,
+    "processing_fee_amount": 360.0,
+    "processing_fee_percentage": null,
+    "insurance_premium": null,
+    "gst_on_fees": 65.0,
+    "other_mandatory_charges": [],
+    "kfs_present": false,
+    "apr_stated_in_document": null,
+    "repayment_via_bank_transfer": false,
+    "cooling_off_period_days": null,
+    "prepayment_terms": "Prepayment not permitted during loan tenure. Full repayment amount must be paid on due date.",
+    "penal_charges": "50 per day flat. After 30 days, compound interest at 48% per annum shall apply on outstanding amount.",
+    "grievance_officer_contact": null,
+    "upfront_fee_before_disbursement": true,
+    "extraction_confidence": "high",
+    "unclear_fields": [
+      "disbursed_amount",
+      "total_repayment_amount",
+      "grievance_officer_contact",
+      "loan_tenure_days",
+      "processing_fee_amount",
+      "apr_stated_in_document",
+      "stated_interest_rate",
+      "principal_amount",
+      "nbfc_registration_number"
+    ],
+    "raw_text_snippet": "QuickCash Financial Services Private Limited\nLOAN SANCTION LETTER\n(Terms and Conditions)\n\nA) TERMS OF LOAN\n\nPARTICULARS\nDETAILS\nName of Lender\nQuickCash Financial Services Private Limited\nName of Borrower\nRamesh Kumar Sharma\nLoan ID\nQC240315ABXYZ\nLoan Amount (Principal) INR\n3,000\nAnnualized Rate of Interest"
+  },
+  "extraction_warnings": [],
+  "apr_breakdown": {
+    "principal": 3000.0,
+    "tenure_days": 21,
+    "stated_rate_annual": 36.0,
+    "stated_rate_type": "monthly (×12 annualized)",
+    "total_interest": 63.0,
+    "processing_fee": 360.0,
+    "insurance_premium": 0.0,
+    "gst_on_fees": 65.0,
+    "other_charges": 0.0,
+    "total_cost": 488.0,
+    "effective_apr_simple": 282.73,
+    "effective_apr_compound": 1941.73,
+    "is_short_tenure": true,
+    "annualization_note": "This is a 21-day loan. You receive ₹2,575 and repay ₹3,063, so the total borrowing cost is ₹488. Annualizing a 21-day loan with that cost produces an extremely high APR.",
+    "actual_disbursed": 2575.0,
+    "fee_deduction_trap": false,
+    "display_apr_capped": false
+  },
+  "declared_apr": 36.0,
+  "actual_apr": 1941.73,
+  "apr_multiplier": 53.9,
+  "rbi_rules": [
+    {
+      "rule_id": 1,
+      "group": "Key Fact Statement",
+      "description": "Key Fact Statement (KFS) provided before signing",
+      "result": "fail",
+      "detail": "No KFS found. RBI mandates KFS for all digital loans before borrower acceptance.",
+      "rbi_reference": "RBI KFS Circular, April 2024"
+    },
+    {
+      "rule_id": 2,
+      "group": "Key Fact Statement",
+      "description": "Annual Percentage Rate (APR) explicitly stated",
+      "result": "fail",
+      "detail": "APR not disclosed. RBI requires APR including all fees in the KFS.",
+      "rbi_reference": "RBI KFS Circular, April 2024"
+    },
+    {
+      "rule_id": 3,
+      "group": "Key Fact Statement",
+      "description": "All fees itemized (processing fee, insurance, GST)",
+      "result": "pass",
+      "detail": "Processing fee details found in document.",
+      "rbi_reference": "RBI KFS Circular, April 2024"
+    },
+    {
+      "rule_id": 4,
+      "group": "Key Fact Statement",
+      "description": "Grievance redressal mechanism and contact stated",
+      "result": "fail",
+      "detail": "No grievance officer contact found. Borrower has no formal recourse path stated.",
+      "rbi_reference": "RBI Fair Practice Code for NBFCs (Master Circular)"
+    },
+    {
+      "rule_id": 5,
+      "group": "Loan Terms",
+      "description": "Loan tenure ≥ 30 days (RBI minimum)",
+      "result": "fail",
+      "detail": "Tenure: 21 days — below RBI minimum of 30 days. Short-tenure loans create extreme APR and debt traps.",
+      "rbi_reference": "RBI Digital Lending Directions, May 2025"
+    },
+    {
+      "rule_id": 6,
+      "group": "Loan Terms",
+      "description": "Clear repayment schedule or total repayment amount stated",
+      "result": "pass",
+      "detail": "Total repayment: ₹3,063",
+      "rbi_reference": "RBI Fair Practice Code for NBFCs (Master Circular)"
+    },
+    {
+      "rule_id": 7,
+      "group": "Loan Terms",
+      "description": "Prepayment/foreclosure terms disclosed",
+      "result": "pass",
+      "detail": "Prepayment terms: Prepayment not permitted during loan tenure. Full repayment amount must be paid on due date.",
+      "rbi_reference": "RBI Fair Practice Code for NBFCs (Master Circular)"
+    },
+    {
+      "rule_id": 8,
+      "group": "Loan Terms",
+      "description": "Late payment / penal charges disclosed",
+      "result": "pass",
+      "detail": "Penal charges: 50 per day flat. After 30 days, compound interest at 48% per annum shall apply on outstanding amount.",
+      "rbi_reference": "RBI Fair Practice Code for NBFCs (Master Circular)"
+    },
+    {
+      "rule_id": 9,
+      "group": "Loan Terms",
+      "description": "Penal charges: simple interest only (not compound)",
+      "result": "fail",
+      "detail": "VIOLATION: Compound penal interest found — only simple interest is permitted on overdue.",
+      "rbi_reference": "RBI Circular on Penal Charges, 2023"
+    },
+    {
+      "rule_id": 10,
+      "group": "Loan Terms",
+      "description": "Cooling-off period ≥ 3 days mentioned",
+      "result": "fail",
+      "detail": "Cooling-off period not mentioned. RBI mandates minimum 3 days to exit without penalty.",
+      "rbi_reference": "RBI Digital Lending Directions, May 2025"
+    },
+    {
+      "rule_id": 11,
+      "group": "Lender Identity",
+      "description": "NBFC/Bank name explicitly stated",
+      "result": "pass",
+      "detail": "Lender: QuickCash Financial Services Private Limited",
+      "rbi_reference": "RBI Fair Practice Code for NBFCs (Master Circular)"
+    },
+    {
+      "rule_id": 12,
+      "group": "Lender Identity",
+      "description": "RBI registration / COR number present",
+      "result": "fail",
+      "detail": "RBI registration number not found. Verify lender legitimacy at rbi.org.in.",
+      "rbi_reference": "RBI Digital Lending Directions, May 2025"
+    },
+    {
+      "rule_id": 13,
+      "group": "Lender Identity",
+      "description": "Grievance officer name and contact stated",
+      "result": "fail",
+      "detail": "Grievance officer contact missing.",
+      "rbi_reference": "RBI Fair Practice Code for NBFCs (Master Circular)"
+    },
+    {
+      "rule_id": 14,
+      "group": "Cost Transparency",
+      "description": "Processing fee stated as amount or percentage",
+      "result": "pass",
+      "detail": "Processing fee: ₹360 (0%)",
+      "rbi_reference": "RBI KFS Circular, April 2024"
+    },
+    {
+      "rule_id": 15,
+      "group": "Cost Transparency",
+      "description": "Insurance premium disclosed separately",
+      "result": "unclear",
+      "detail": "Insurance premium not separately disclosed (may be hidden inside other charges).",
+      "rbi_reference": "RBI KFS Circular, April 2024"
+    },
+    {
+      "rule_id": 16,
+      "group": "Cost Transparency",
+      "description": "GST applicability on fees stated",
+      "result": "pass",
+      "detail": "GST on fees: ₹65",
+      "rbi_reference": "RBI KFS Circular, April 2024"
+    },
+    {
+      "rule_id": 17,
+      "group": "Cost Transparency",
+      "description": "Disbursed amount = sanctioned amount minus only disclosed fees",
+      "result": "pass",
+      "detail": "Sanctioned: ₹3,000 | Disbursed: ₹2,575 | Disbursement matches disclosed fees. ✓",
+      "rbi_reference": "RBI Digital Lending Directions, May 2025"
+    },
+    {
+      "rule_id": 18,
+      "group": "Recovery Practices",
+      "description": "No undisclosed fees deducted from disbursement",
+      "result": "pass",
+      "detail": "Deductions (₹425) accounted for by disclosed fees. ✓",
+      "rbi_reference": "RBI Digital Lending Directions, May 2025"
+    },
+    {
+      "rule_id": 19,
+      "group": "Recovery Practices",
+      "description": "Repayments go directly to NBFC/bank account",
+      "result": "fail",
+      "detail": "Repayment not via direct bank transfer — possible illegal third-party routing.",
+      "rbi_reference": "RBI Digital Lending Directions, May 2025"
+    },
+    {
+      "rule_id": 20,
+      "group": "Recovery Practices",
+      "description": "Late fee capped at simple interest on overdue amount only",
+      "result": "fail",
+      "detail": "Potential violation: penal charges may not comply with RBI cap. Review: 50 per day flat. After 30 days, compound interest at 48% per annum shall apply on outstanding amount.",
+      "rbi_reference": "RBI Circular on Penal Charges, 2023"
+    },
+    {
+      "rule_id": 21,
+      "group": "Recovery Practices",
+      "description": "App does not access contacts/gallery (requires app permissions check)",
+      "result": "unclear",
+      "detail": "Cannot verify from document alone — check app permissions on your phone. RBI prohibits apps from accessing contacts, photos, or location beyond KYC needs.",
+      "rbi_reference": "RBI Digital Lending Directions, May 2025"
+    }
+  ],
+  "violations_count": 10,
+  "violations_summary": [
+    "Rule 1: Key Fact Statement (KFS) provided before signing",
+    "Rule 2: Annual Percentage Rate (APR) explicitly stated",
+    "Rule 4: Grievance redressal mechanism and contact stated",
+    "Rule 5: Loan tenure ≥ 30 days (RBI minimum)",
+    "Rule 9: Penal charges: simple interest only (not compound)",
+    "Rule 10: Cooling-off period ≥ 3 days mentioned",
+    "Rule 12: RBI registration / COR number present",
+    "Rule 13: Grievance officer name and contact stated",
+    "Rule 19: Repayments go directly to NBFC/bank account",
+    "Rule 20: Late fee capped at simple interest on overdue amount only"
+  ],
+  "verdict": {
+    "english": "This loan has an effective APR of 1941.7%, which is 53.9 times higher than the stated 36%. Due to 10 RBI violations, including the failure to provide a Key Fact Statement, this loan likely violates RBI regulations. File a complaint at cms.rbi.org.in.",
+    "hindi": "इस लोन की वास्तविक ब्याज दर 1941.7% है, जो बताई गई दर से 53.9 गुना ज्यादा है। आरबीआई के 10 नियमों का उल्लंघन होने के कारण, यह लोन आरबीआई के नियमों के खिलाफ है। अपनी शिकायत cms.rbi.org.in पर दर्ज करें।",
+    "kannada": "ಈ ಸಾಲದ ಬಡ್ಡಿ ದರವು ಹೇಳಿದ್ದಕ್ಕಿಂತ 53.9 ಪಟ್ಟು ಹೆಚ್ಚಾಗಿದ್ದು, 1941.7% ರಷ್ಟಿದೆ. ಆರ್‌ಬಿಐನ 10 ನಿಯಮಗಳನ್ನು ಉಲ್ಲಂಘಿಸಿರುವುದರಿಂದ, ಈ ಸಾಲವು ಆರ್‌ಬಿಐ ನಿಯಮಗಳಿಗೆ ವಿರುದ್ಧವಾಗಿದೆ. ದಯವಿಟ್ಟು cms.rbi.org.in ನಲ್ಲಿ ದೂರು ಸಲ್ಲಿಸಿ."
+  },
+  "severity": "severe",
+  "severity_color": "#9C27B0",
+  "predatory_score": 90,
+  "processing_time_seconds": 5.19,
+  "gemini_model_used": "models/gemini-3.1-flash-lite-preview"
+}
