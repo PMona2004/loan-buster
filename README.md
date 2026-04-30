@@ -159,7 +159,7 @@ Step 6:  Fee deduction trap detection
 Step 7:  Short-tenure annualization note (loans < 30 days)
 ```
 
-**Key insight for judges:** A standard APR calculator requires the borrower to already know all their numbers and type them in. Loan Buster reads the agreement, extracts every number, and computes the result. The gap between 29.64% declared and 34.87% actual on the KreditBee document? It's ₹589 in fees charged on the full principal even though the borrower only received ₹34,411. No borrower would calculate this manually.
+**Key insight :** A standard APR calculator requires the borrower to already know all their numbers and type them in. Loan Buster reads the agreement, extracts every number, and computes the result. The gap between 29.64% declared and 34.87% actual on the KreditBee document? It's ₹589 in fees charged on the full principal even though the borrower only received ₹34,411. No borrower would calculate this manually.
 
 ---
 
